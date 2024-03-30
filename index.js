@@ -25,12 +25,9 @@ const client = new TwitterApi({
 function getAndPostRates() {
     axios.get(`https://cedirates.com/api/v1/average/${moment().format('D-M-YYYY')}`).then((data) => {
         if(data.data) {
-        client.v2.tweet({ text: `${moment().format('ddd D MMM, YYYY • hh:mm A')} \n \n 💵 1 USD = ₵${data.data.averageDollar.sellingRate.toFixed(2)} \n 💷 1 GBP = ₵${data.data.averagePound.sellingRate.toFixed(2)} \n 💶 1 EUR = ₵${data.data.averageEuro.sellingRate.toFixed(2)}` }).then((data) => {
+        client.v2.tweet({ text: `${moment().format('ddd D MMM, YYYY • hh:mm A')} \n \n 💵 1 USD = ₵${data.data.averageDollar.sellingRate.toFixed(2)} \n 💷 1 GBP = ₵${data.data.averagePound.sellingRate.toFixed(2)} \n 💶 1 EUR = ₵${data.data.averageEuro.sellingRate.toFixed(2)} \n \n Check for your bank or forex bureau here: https://cedirates.com` }).then((data) => {
             // console.log(data)
             console.log('Posted tweet')
-            client.v2.reply('Check for your bank or forex bureau here: https://cedirates.com/exchangerates/', data.data.id).then(() => {
-                console.log('Posted reply')    
-            })
         }).catch((err) => {
             console.log(`Error sending Tweet: ${err}`)
         })
