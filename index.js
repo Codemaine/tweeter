@@ -4,16 +4,16 @@ const moment = require('moment');
 const schedule = require('node-schedule');
 
 // Live CediRates Account @CediRates
-const consumerKey = 'gIp8dHZSvM9KSq1vFEaPDYJ7f';
-const consumerSecret = '4HUMnRqmOKSpcWwczR5jFsTX0EEUI1B2asI0oJ5GidZ8DlfDxs';
-const accessToken = '1098181745915105280-ONEI6x6absVtxAEDZ0MFN4EISNo48L';
-const accessTokenSecret = 'Zb0cDsrlxIXcjLvRGiz09ZnEQuwm5TzsfZjIGW8InIAxd';
+// const consumerKey = 'gIp8dHZSvM9KSq1vFEaPDYJ7f';
+// const consumerSecret = '4HUMnRqmOKSpcWwczR5jFsTX0EEUI1B2asI0oJ5GidZ8DlfDxs';
+// const accessToken = '1098181745915105280-ONEI6x6absVtxAEDZ0MFN4EISNo48L';
+// const accessTokenSecret = 'Zb0cDsrlxIXcjLvRGiz09ZnEQuwm5TzsfZjIGW8InIAxd';
 
 // Test CediRates Account @CDR8S
-// const consumerKey = 'pedSHYe2qJ8SZIzQ0WzDncpAY';
-// const consumerSecret = 'dxR2PpDw7bEABAUDXejhaG5HC7KQ94aO0R93gUzhQZNmO2Lp9Y';
-// const accessToken = '1344576123385106432-hE40gNQcceoqyL603JGLUovj4g5TwJ';
-// const accessTokenSecret = '5nG1HQQOw4FvOKEeWMblQlwTGqvLgY7ewTro64IioKHdw';
+const consumerKey = 'pedSHYe2qJ8SZIzQ0WzDncpAY';
+const consumerSecret = 'dxR2PpDw7bEABAUDXejhaG5HC7KQ94aO0R93gUzhQZNmO2Lp9Y';
+const accessToken = '1344576123385106432-hE40gNQcceoqyL603JGLUovj4g5TwJ';
+const accessTokenSecret = '5nG1HQQOw4FvOKEeWMblQlwTGqvLgY7ewTro64IioKHdw';
 
 const client = new TwitterApi({
   appKey: consumerKey,
@@ -42,6 +42,6 @@ function getAndPostRates() {
     })
 };
     
-const job = schedule.scheduleJob('0 10 * * *', getAndPostRates);
-// getAndPostRates()
-console.log(`Job scheduled to run every day at 10 am: ${job.nextInvocation()}`);
+// const job = schedule.scheduleJob('0 10 * * *', getAndPostRates);
+getAndPostRates()
+// console.log(`Job scheduled to run every day at 10 am: ${job.nextInvocation()}`);
